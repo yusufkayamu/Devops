@@ -12,11 +12,11 @@
 # These copy files will include the time, date, and file name.
 
 # Usage
-# ./read_file.sh
+# ./read_file.sh <file_name>
 
 #!/bin/bash
 
-read -p "Enter a file name: "
+read -p "Enter a file name: " file_name
 
 if [ -e "$file_name" ] || [ -e "$file_name"* ]; then
     matched_files=("$file_name"*)
@@ -49,9 +49,9 @@ else
     echo "$file_content" > "$file_name"
     echo "File created and content written."
     sleep 1
-    read -p  "Are you want to create copies of the file? (y/n) : " response
+    read -p  "Are you want to create copies of the file? (y/n)" response
     if [ "$response" != "n" ]; then
-        read -p  "How many copies do you want to create? (1-9) : " copy_count
+        read -p  "How many copies do you want to create? (1-9)" copy_count
         for i in $(seq 1 "$copy_count"); do
             cp "$file_name" "${file_name}_copy${i}_$(date +"%Y-%m-%d:%H-%M")"
             sleep 1
