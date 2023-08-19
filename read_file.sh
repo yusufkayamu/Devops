@@ -12,7 +12,7 @@
 # These copy files will include the time, date, and file name.
 
 # Usage
-# ./read_file.sh <file_name>
+# ./read_file.sh
 
 #!/bin/bash
 
